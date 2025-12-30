@@ -1,0 +1,43 @@
+{
+  "name": "i-reporter-node",
+  "version": "1.0.0",
+  "description": "NPM package to retrieve/send data to i-reporter",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts --minify --clean",
+    "typecheck": "tsc --noEmit",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "i-reporter",
+    "xml",
+    "api"
+  ],
+  "author": "Ravhi Rizaldi",
+  "license": "MIT",
+  "dependencies": {
+    "@types/adm-zip": "^0.5.7",
+    "@types/qrcode": "^1.5.6",
+    "adm-zip": "^0.5.16",
+    "axios": "^1.13.2",
+    "form-data": "^4.0.5",
+    "iconv-lite": "^0.7.1",
+    "qrcode": "^1.5.4",
+    "qs": "^6.14.1",
+    "xml2js": "^0.6.2"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.3",
+    "@types/qs": "^6.14.0",
+    "@types/xml2js": "^0.4.14",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.7.4",
+    "tsup": "^8.5.1",
+    "typescript-eslint": "^8.51.0"
+  }
+}
