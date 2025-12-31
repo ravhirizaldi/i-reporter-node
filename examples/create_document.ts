@@ -19,13 +19,14 @@ async function main() {
         {
           sheetNo: 1,
           clusters: [
+            //pre-filled clusters
             {
               clusterId: 73,
               value: 100,
               sheetNo: 1,
             },
             {
-              sheetNo: 1, // redundant but testing handling
+              sheetNo: 1,
               clusterId: 74,
               value: 200,
             },

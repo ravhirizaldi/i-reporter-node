@@ -13,6 +13,7 @@ import {
   DocumentDetail,
   SimpleClusterUpdate,
   CreateDocumentOptions,
+  GetDefinitionListOptions,
 } from './types';
 import { convertDocumentToXml, generatePartialUpdateXml, buildCreateDocumentXml } from './xmlUtils';
 
@@ -380,5 +381,36 @@ export class IReporterNode {
         await this.logout();
       }
     }
+  }
+
+  public async getFormList(options: GetDefinitionListOptions = {}): Promise<any> {
+    const params: Record<string, string> = {};
+
+    // Map options to API parameters
+    if (options.labelId !== undefined) params.labelId = options.labelId.toString();
+    if (options.itemTargetLabel !== undefined)
+      params.itemTargetLabel = options.itemTargetLabel.toString();
+    if (options.itemTargetSheet !== undefined)
+      params.itemTargetSheet = options.itemTargetSheet.toString();
+    if (options.itemTargetSet !== undefined)
+      params.itemTargetSet = options.itemTargetSet.toString();
+    if (options.itemTargetBook !== undefined)
+      params.itemTargetBook = options.itemTargetBook.toString();
+    if (options.publicStatus !== undefined) params.publicStatus = options.publicStatus.toString();
+    if (options.word) params.word = options.word;
+    if (options.wordTargetName !== undefined)
+      params.wordTargetName = options.wordTargetName.toString();
+    if (options.wordTargetRemarks !== undefined)
+      params.wordTargetRemarks = options.wordTargetRemarks.toString();
+    if (options.History !== undefined) params.History = options.History.toString();
+    if (options.systemKey1) params.systemKey1 = options.systemKey1;
+    if (options.systemKey2) params.systemKey2 = options.systemKey2;
+    if (options.systemKey3) params.systemKey3 = options.systemKey3;
+    if (options.systemKey4) params.systemKey4 = options.systemKey4;
+    if (options.systemKey5) params.systemKey5 = options.systemKey5;
+    if (options.uriSchemeMode !== undefined)
+      params.uriSchemeMode = options.uriSchemeMode.toString();
+
+    return this.execute('GetDefinitionList', params);
   }
 }

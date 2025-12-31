@@ -135,3 +135,50 @@ export interface CreateDocumentOptions {
   encoding?: string;
   userMode?: number; // 0: API User, 1: createUserId
 }
+
+export interface GetDefinitionListOptions {
+  labelId?: string | number; // Default -9 (all)
+  itemTargetLabel?: boolean; // Default true
+  itemTargetSheet?: boolean; // Default true
+  itemTargetSet?: boolean; // Default true
+  itemTargetBook?: boolean; // Default true
+  publicStatus?: number; // 1: Test, 2: Published. Default All? API says "All/1/2". Let's assume undefined = All.
+  word?: string;
+  wordTargetName?: boolean; // Default false
+  wordTargetRemarks?: boolean; // Default false
+  History?: boolean; // Default false
+  systemKey1?: string;
+  systemKey2?: string;
+  systemKey3?: string;
+  systemKey4?: string;
+  systemKey5?: string;
+  uriSchemeMode?: number; // -1: No auth, 2: Include login auth.
+}
+
+export interface DefinitionItem {
+  type: string; // 0: Label, 1: Sheet, 2: Set, 3: Book
+  itemId: string;
+  name: string;
+  iconId?: string;
+  dispRemarks?: string;
+  displayNumber?: string;
+  editStatus?: string;
+  itemOrg?: string;
+  revNo?: string;
+  current?: string;
+  mobileSave?: string;
+  registTime?: string;
+  updateTime?: string;
+  urlScheme?: string;
+  systemKey1?: string;
+  systemKey2?: string;
+  [key: string]: any;
+}
+
+export interface DefinitionListResult {
+  conmas: {
+    items: {
+      item: DefinitionItem[] | DefinitionItem;
+    };
+  };
+}
